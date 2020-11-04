@@ -19,7 +19,7 @@ for line in infile:
 	if line[:2] == '##': #write header lines
 		outfile.write(line)
 	elif line[:2] == '#C': #sample line
-		linelist = line.split('\t')
+		linelist = line.rstrip().split('\t') #rstrip() to make sure it is found if its the last
 		try: #get index of outgroup
 			outindex = linelist.index(sys.argv[3]) 
 		except ValueError:
