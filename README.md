@@ -16,8 +16,8 @@ The script assumes that the individual is an outgroup to all other samples in th
 In that case when the Outgroup is homozygous for an allele then this allele is assumed to be the ancestral. If the outgroup is heterozygous we don't really care because we only get information for the ancestal allele if all samples are homozygous. In that case the ancestral allele is the allele missing but for analyses that require polymorphic sites the information for the samples is missing (non-variant site). We use this script as a filtering step before executing the fastSIMCOAL2 software [link](http://cmpg.unibe.ch/software/fastsimcoal2/)  
 
 2. heterozygosity.r  
-A simple non-optimized script to calculate Heterozygosity from a gds file. Modifying variables in the script adapts the script to data. It is meant to be accessed for reproducibility of results and not general use.  
+A simple non-optimized script to calculate Heterozygosity from a gds file. Modifying variables in the script adapts the script to data. It is meant to be accessed for reproducibility of results and not adapted general use.  
 
-3. private-alleles.r
+3. private-alleles.r  
 A simple function in R that calculates private alleles from a gds file using the genotype matrix. Quite annotated. Used for reproducibility of results, might be adapted to personal use.  
 
