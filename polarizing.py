@@ -32,7 +32,7 @@ for line in infile:
 		if out == '0/0': #outgroup homozygous for the reference == ancestral
 			ref = linelist[3] #get ref allele 
 			info = linelist[7] #get info field 
-			info = 'AA:' + ref + ';' + info  #add AA info into info filed
+			info = 'AA:' + ref + ';' + info  #add AA info into info field
 			linelist[7] = info #change line
 			outfile.write('\t'.join(linelist)) #paste list together and write
 		elif out == '1/1': #outgroup homozygous for the alternative == ancestral
