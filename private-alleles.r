@@ -4,9 +4,9 @@ pop <- as.factor(c(rep(c('AE','CT','CY','GR','IO','IS','IT'),c(11,11,10,10,5,9,9
 require(SNPRelate)
 gen_mat <- snpgdsGetGeno('perfect_unpruned.gds') # change name to your gds to get Genotable
 
-### position indexes for populations ### START AND END are their indexes in the Genotable or the header of the vcf pre-gds 
+### position indexes for populations ### START AND END are their indexes in the genotype matrix or the header of the vcf pre-gds 
 positions <- data.frame('pop'=unique(pop), 'start'=c(1,12,23,33,43,48,57), 'end'=c(11,22,32,42,47,56,65))
-#this will tell the function where each population is in row indexes of the genomatrix
+#this will tell the function where each population is in row indexes of the genotype matrix
 
 count_priv_all <- function(column, start, finish){
   pallele = rep(F,10) # the number 10 is the number of samplings the function will perform to get a mean and SD
@@ -15,7 +15,7 @@ count_priv_all <- function(column, start, finish){
   for(i in 1:10){
   sampled_ind <- column[c(sample(start:finish, size=5, replace=F))] #sample=5 , you can change that to the smallest sample size
   total_sampled_ind <- 5 - sum(is.na(sampled_ind)) #remove NAs!
-  if(total_sampled_ind == 0){ #FUCK
+  if(total_sampled_ind == 0){ #oof
       print('Only NAs in sample')
       next
     } else {
