@@ -13,7 +13,7 @@ The script assumes that the individual is an outgroup to all other samples in th
 
 (OUTGROUP(Samples))  
 
-In that case when the Outgroup is homozygous for an allele then this allele is assumed to be the ancestral. If the outgroup is heterozygous we don't really care because we only get information for the ancestal allele if all samples are homozygous. In that case the ancestral allele is the allele missing but for analyses that require polymorphic sites the information for the samples is missing (non-variant site). We use this script as a filtering step before executing the fastSIMCOAL2 software [link](http://cmpg.unibe.ch/software/fastsimcoal2/)  
+In that case when the Outgroup is homozygous for an allele then this allele is assumed to be the ancestral. If the outgroup is heterozygous we don't really care because we only get information for the ancestal allele if all samples are homozygous. In that case the ancestral allele is the allele missing but for analyses that require polymorphic sites the information for the samples is missing (non-variant site). We use this script as a filtering step before executing the fastSIMCOAL2 software [link](http://cmpg.unibe.ch/software/fastsimcoal2/)  in "Genomic consequences of colonisation, migration and genetic drift in barn owl insular populations of the eastern Mediterranean".
 
 2. pop_heterozygosity.r  
 A simple non-optimized script to calculate Heterozygosity from a gds file. Modifying variables in the script adapts the script to data. Calculates the heterozygosity of the population per site.
