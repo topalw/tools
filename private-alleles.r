@@ -7,8 +7,9 @@ gen_mat <- snpgdsGetGeno('perfect_unpruned.gds') # change name to your gds to ge
 ### position indexes for populations ### START AND END are their indexes in the genotype matrix or the header of the vcf pre-gds 
 positions <- data.frame('pop'=unique(pop), 'start'=c(1,12,23,33,43,48,57), 'end'=c(11,22,32,42,47,56,65))
 #this will tell the function where each population is in row indexes of the genotype matrix
-
-count_priv_all <- function(column, start, finish, reps=10, smallest_size=5){
+reps = 100 # change this to change the number of samples
+sample_size = 5 # change this to change the size of the sample - must be <= to the smallest population size
+count_priv_all <- function(column, start, finish, reps=100, sample_size=5){
  # column is the data input (1 column of the genotype matrix), start and finish are the population indexes and reps is the number of replicates performed
  # for the calculation of mean, sd. Smallest_size is the size of the smallest population, this will be the sample size when randomly selecting individuals.
   pallele = rep(F,reps) 
@@ -34,6 +35,6 @@ matrix1 <- matrix(NA, nrow=0, ncol=reps) #make matrix  - set reps to # of replic
 for(i in 1:length(unique(pop))){ # loop the function for each pop
     print(i)
     matrix1 <- rbind(matrix1, rowSums(apply(gen_mat,2, function(x) {count_priv_all(x,positions$start[i],positions$end[i], reps=10,
-                                                                                  smallest_size=5)}),na.rm=T) )
+                                                                                  sample_size=sample_size)}),na.rm=T) )
   }
 write.table(matrix1, file='private_alleles.table')
